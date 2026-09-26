@@ -1,3 +1,4 @@
+-- Active: 1790459498759@@127.0.0.1@5432@superstore
 CREATE database superstore;
 
 CREATE TABLE customers(
@@ -26,3 +27,12 @@ CREATE TABLE orders(
     discount DECIMAL(10,2),
     profit DECIMAL(10,2)
 );
+
+SELECT 
+    o.order_id,
+    c.customer_name,
+    o.sales
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.sales > 500
+ORDER BY o.sales DESC;
