@@ -1,4 +1,5 @@
 -- Active: 1790459498759@@127.0.0.1@5432@superstore
+--1
 CREATE database superstore;
 
 CREATE TABLE customers(
@@ -11,7 +12,7 @@ CREATE TABLE customers(
 
 CREATE TABLE products(
     product_id VARCHAR(20) PRIMARY KEY,
-    categotry VARCHAR(50),
+    category VARCHAR(50),
     sub_category VARCHAR(50),
     product_name VARCHAR(50)
 );
@@ -21,13 +22,14 @@ CREATE TABLE orders(
     customer_id VARCHAR(20) REFERENCES customers(customer_id),
     product_id VARCHAR(20) REFERENCES products(product_id),
     order_date DATE,
-    shit_date DATE,
+    ship_date DATE,
     sales DECIMAL(10,2),
     quantity INT,
     discount DECIMAL(10,2),
     profit DECIMAL(10,2)
 );
 
+--2
 SELECT 
     o.order_id,
     c.customer_name,
